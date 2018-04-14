@@ -12,13 +12,13 @@ package pro.buildmysoftware.testlimits.bad;
 public class MessagePrinter
 {
 	/**
-	 * Prints a message to stdout.
-	 * 
+	 * Prints a message.
+	 *
 	 * @param msg
 	 *                a message
 	 */
 	public static void print(String msg)
 	{
-		System.out.println(msg);
+		System.out.print(msg);
 	}
 }
