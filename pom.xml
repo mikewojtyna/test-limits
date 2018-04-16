@@ -14,6 +14,7 @@
 		<commons.lang.version>3.7</commons.lang.version>
 		<poi.version>3.16</poi.version>
 		<guava.version>21.0</guava.version>
+		<guava.testlib.version>20.0</guava.testlib.version>
 	</properties>
 
 	<dependencies>
@@ -68,6 +69,11 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>${guava.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava-testlib</artifactId>
+			<version>${guava.testlib.version}</version>
 		</dependency>
 	</dependencies>
 
