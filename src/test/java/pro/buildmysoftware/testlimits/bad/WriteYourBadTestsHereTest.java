@@ -1,7 +1,7 @@
 /**
  * 
  */
-package pro.buildmysoftware.testlimits.good;
+package pro.buildmysoftware.testlimits.bad;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * @author goobar
  *
  */
-class WriteYourGoodTestsHere
+class WriteYourBadTestsHereTest
 {
 
 	/**
