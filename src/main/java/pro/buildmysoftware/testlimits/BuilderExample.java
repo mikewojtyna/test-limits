@@ -73,9 +73,9 @@ public class BuilderExample
 	@Generated("SparkTools")
 	public static final class Builder
 	{
-		private int age;
+		private Integer age;
 
-		private int height;
+		private Integer height;
 
 		private String name;
 
