@@ -4,7 +4,6 @@
 package pro.buildmysoftware.testlimits.bad.converter;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.fail;
 import java.util.Optional;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
@@ -85,13 +84,24 @@ class ConverterTest
 	@Test
 	void convertToString() throws Exception
 	{
-		assertThat(converter.convert(bike(), String.class).get())
-			.isEqualTo("Bike");
-		assertThat(converter.convert(car(), String.class).get())
-			.isEqualTo("Car");
-		assertThat(converter.convert(motorcycle(), String.class).get())
-			.isEqualTo("Motorcycle");
-		fail("Not yet implemented");
+		assertThat(converter.convert(bike(), String.class))
+			.hasValue(("Bike"));
+		assertThat(converter.convert(car(), String.class))
+			.hasValue("Car");
+		assertThat(converter.convert(motorcycle(), String.class))
+			.hasValue("Motorcycle");
+	}
+
+	@DisplayName("should convert to empty Optional if conversion is not supported")
+	@Test
+	void emptyIfNotSupported() throws Exception
+	{
+		// when
+		Optional<Banana> result = converter.convert(bike(),
+			Banana.class);
+
+		// then
+		assertThat(result).isEmpty();
 	}
 
 	/**
@@ -101,6 +111,15 @@ class ConverterTest
 	void setUp() throws Exception
 	{
 		converter = new Converter();
+	}
+
+	/**
+	 * @author goobar
+	 *
+	 */
+	public class Banana
+	{
+
 	}
 
 }
