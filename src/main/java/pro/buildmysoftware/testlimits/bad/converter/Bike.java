@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package pro.buildmysoftware.testlimits.bad.converter;
 
@@ -9,5 +9,12 @@ package pro.buildmysoftware.testlimits.bad.converter;
  */
 public class Bike
 {
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString()
+	{
+		return "Bike";
+	}
 }
