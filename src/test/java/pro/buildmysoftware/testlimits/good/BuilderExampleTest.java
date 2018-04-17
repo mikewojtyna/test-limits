@@ -1,7 +1,7 @@
 /**
  *
  */
-package pro.buildmysoftware.testlimits;
+package pro.buildmysoftware.testlimits.good;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pro.buildmysoftware.testlimits.BuilderExample.Builder;
+import pro.buildmysoftware.testlimits.good.BuilderExample.Builder;
 
 /**
  * @author goobar
