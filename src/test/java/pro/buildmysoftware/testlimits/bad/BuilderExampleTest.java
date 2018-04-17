@@ -9,7 +9,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pro.buildmysoftware.testlimits.bad.BuilderExample.Builder;
 
 /**
  * @author goobar
@@ -26,30 +25,13 @@ class BuilderExampleTest
 		return RandomStringUtils.randomAlphabetic(6);
 	}
 
-	/**
-	 * @return
-	 *
-	 */
-	private Builder builder()
-	{
-		return BuilderExample.builder();
-	}
-
-	/**
-	 * @return
-	 */
-	private BuilderExample buildWithoutOptionals()
-	{
-		return BuilderExample.builder().withName(anyName()).build();
-	}
-
 	@DisplayName("should initialize all properties")
 	@Test
 	void allProperties() throws Exception
 	{
 		// when
-		BuilderExample example = builder().withName("george")
-			.withAge(10).withHeight(180).build();
+		BuilderExample example = BuilderExample.builder()
+			.withName("george").withAge(10).withHeight(180).build();
 
 		// then
 		assertThat(example.getName()).isEqualTo("george");
@@ -62,7 +44,8 @@ class BuilderExampleTest
 	void optionalProperties() throws Exception
 	{
 		// when
-		BuilderExample instance = buildWithoutOptionals();
+		BuilderExample instance = BuilderExample.builder()
+			.withName(anyName()).build();
 
 		// then
 		assertThat(instance.getAge().isPresent()).isFalse();
