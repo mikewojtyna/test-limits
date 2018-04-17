@@ -1,7 +1,7 @@
 /**
  *
  */
-package pro.buildmysoftware.testlimits;
+package pro.buildmysoftware.testlimits.good;
 
 import java.util.Optional;
 import javax.annotation.Generated;
