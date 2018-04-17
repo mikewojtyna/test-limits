@@ -40,7 +40,8 @@ public class Product
 	{
 		Product productAfterDiscount = new Product();
 		productAfterDiscount.id = id;
-		productAfterDiscount.price = discount.calculate();
+		productAfterDiscount.price = price
+			.subtract(discount.calculate());
 		productAfterDiscount.name = name;
 		return productAfterDiscount;
 	}
