@@ -29,9 +29,9 @@ public class BuilderExample
 		return new Builder();
 	}
 
-	private final int age;
+	private final Integer age;
 
-	private final int height;
+	private final Integer height;
 
 	private final String name;
 
