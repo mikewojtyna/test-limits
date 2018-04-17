@@ -1,7 +1,7 @@
 /**
  *
  */
-package pro.buildmysoftware.testlimits;
+package pro.buildmysoftware.testlimits.bad;
 
 import java.util.Optional;
 import javax.annotation.Generated;
@@ -29,9 +29,9 @@ public class BuilderExample
 		return new Builder();
 	}
 
-	private final Integer age;
+	private final int age;
 
-	private final Integer height;
+	private final int height;
 
 	private final String name;
 
@@ -73,9 +73,9 @@ public class BuilderExample
 	@Generated("SparkTools")
 	public static final class Builder
 	{
-		private Integer age;
+		private int age;
 
-		private Integer height;
+		private int height;
 
 		private String name;
 
