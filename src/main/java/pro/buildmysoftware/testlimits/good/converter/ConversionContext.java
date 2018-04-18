@@ -5,6 +5,7 @@ package pro.buildmysoftware.testlimits.good.converter;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -17,11 +18,19 @@ import java.util.Optional;
 @SuppressWarnings("javadoc")
 public class ConversionContext
 {
-	private Map<Class<?>, Collection<Converter<Object, ?>>> converters;
+	private final Map<Class<?>, Collection<Converter<Object, Object>>> converterMap;
+
+	/**
+	 *
+	 */
+	public ConversionContext()
+	{
+		converterMap = new HashMap<>();
+	}
 
 	/**
 	 * Converts the given source object. Conversion is delegated to
-	 * registered converters.
+	 * registered converterMap.
 	 *
 	 * @param source
 	 * @param target
@@ -36,24 +45,61 @@ public class ConversionContext
 	/**
 	 * This method <strong>is not thread-safe</strong>.
 	 *
+	 * @param <S>
+	 *
 	 * @param converter
 	 *                a converter to add
 	 * @param target
 	 *                target type of the converter
 	 */
-	public <T> void registerConverter(Converter<Object, T> converter,
+	public <T> void registerConverter(Converter<?, ?> converter,
 		Class<T> target)
 	{
-		Collection<Converter<Object, ?>> rightConverters = converters
-			.get(target);
+		Collection<Converter<Object, Object>> rightConverters = rightConverters(
+			target);
 		if (rightConverters == null)
 		{
-			converters.put(target, new ArrayList<>());
+			initConvertersFor(target, converter);
 		}
 		else
 		{
-			rightConverters.add(converter);
+			addConverter(converter, rightConverters);
 		}
+	}
+
+	/**
+	 * @param converter
+	 * @param rightConverters
+	 */
+	@SuppressWarnings("unchecked")
+	private void addConverter(Converter<?, ?> converter,
+		Collection<Converter<Object, Object>> rightConverters)
+	{
+		rightConverters.add((Converter<Object, Object>) converter);
+	}
+
+	/**
+	 * @param <T>
+	 * @param target
+	 * @param converter
+	 */
+	@SuppressWarnings("unchecked")
+	private <T> void initConvertersFor(Class<T> target,
+		Converter<?, ?> converter)
+	{
+		Collection<Converter<Object, Object>> converters = new ArrayList<>();
+		converters.add((Converter<Object, Object>) converter);
+		converterMap.put(target, converters);
+	}
+
+	/**
+	 * @param target
+	 * @return
+	 */
+	private Collection<Converter<Object, Object>> rightConverters(
+		Object target)
+	{
+		return converterMap.get(target);
 	}
 
 	/**
@@ -63,7 +109,14 @@ public class ConversionContext
 	private <T> Optional<T> useRightConverter(Object source,
 		Class<T> target)
 	{
-		return (Optional<T>) converters.get(target).stream()
+		Collection<Converter<Object, Object>> rightConverters = rightConverters(
+			target);
+		if (rightConverters == null)
+		{
+			return Optional.empty();
+		}
+
+		return (Optional<T>) rightConverters.stream()
 			.map(c -> c.convert(source)).filter(Optional::isPresent)
 			.findFirst().get();
 	}
