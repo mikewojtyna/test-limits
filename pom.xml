@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>pro.buildmysoftware</groupId>
 	<artifactId>test-limits</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>Limits of testability</name>
 	<description>A set of code samples showing limits of unit testing</description>
 	<properties>
