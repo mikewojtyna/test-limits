@@ -59,8 +59,10 @@ class CalculatorPerfectTest
 		"-2, 3, 1",
 		//
 		"-2, 4, 2",
-		// uncomment his one :)
-		// "-1234, 1234, 0"
+		//
+		"-1234, 1234, 0",
+		// uncomment this one :)
+		// "1234, -1234, 0"
 	})
 	void testAdd(int a, int b, int expected) throws Exception
 	{
