@@ -17,6 +17,14 @@ class CertificateOwner
 	private String name;
 
 	/**
+	 * @return the certificates
+	 */
+	public Set<Certificate> getCertificates()
+	{
+		return certificates;
+	}
+
+	/**
 	 * Confirms certificate by the certificating. When certificate is
 	 * confirmed, it means the owner of this certificate has gained
 	 * competences provided by this certificate.
