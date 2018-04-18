@@ -3,7 +3,9 @@
  */
 package pro.buildmysoftware.testlimits.good.certificate;
 
+import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 import pro.buildmysoftware.testlimits.good.certificate.Certificate.CertificateStatus;
 
 /**
@@ -12,9 +14,18 @@ import pro.buildmysoftware.testlimits.good.certificate.Certificate.CertificateSt
  */
 class CertificateOwner
 {
-	private Set<Certificate> certificates;
+	private final Set<Certificate> certificates;
 
-	private String name;
+	private final String name;
+
+	/**
+	 *
+	 */
+	public CertificateOwner()
+	{
+		certificates = new HashSet<>();
+		name = "owner-" + UUID.randomUUID();
+	}
 
 	/**
 	 * @return the certificates
