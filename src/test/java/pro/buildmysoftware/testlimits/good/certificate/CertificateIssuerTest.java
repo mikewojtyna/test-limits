@@ -4,7 +4,6 @@
 package pro.buildmysoftware.testlimits.good.certificate;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.DisplayName;
@@ -32,8 +31,12 @@ class CertificateIssuerTest
 {
 
 	/**
-	 * Perform a test using an aggregate. This is more like a "mini
-	 * integration test".
+	 * Performs a test using an aggregate. This is more like a "mini
+	 * integration test". This test slowly starts to become a mess, and as
+	 * such is a candidate to @Disable. Developers will likely stop writing
+	 * tests for this aggregate at all. Even if this design might evolve to
+	 * something good (or even might be close to be good), the vision of
+	 * responsibilities is obscured.
 	 *
 	 * @throws Exception
 	 */
@@ -42,6 +45,7 @@ class CertificateIssuerTest
 	void testIssuer() throws Exception
 	{
 		// given
+		// See how big this block is?
 		CertificateIssuer issuer = new CertificateIssuer();
 		String ownerName = "certificateOwner";
 		CertificateOwnerRepository repo = mock(
@@ -51,12 +55,16 @@ class CertificateIssuerTest
 		Approver approver = new Approver(repo);
 
 		// when
+		// Now, this throws an exception because Certificate status has
+		// illegal state. We would need another preparations in the
+		// given block. We would avoid that when testing each component
+		// separately. However, it's good to leave this as it is
+		// because it shows the problem well.
 		issuer.issueDraftFor(ownerName, approver);
 
 		// then
 		assertThat(owner.getCertificates()).hasSize(1);
 		// TODO: should also test for status
-		fail("Not yet implemented");
 	}
 
 }
