@@ -1,7 +1,7 @@
 /**
  *
  */
-package pro.buildmysoftware.testlimits.good;
+package pro.buildmysoftware.testlimits.bad;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.DisplayName;
