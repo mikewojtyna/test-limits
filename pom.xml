@@ -7,34 +7,33 @@
 	<name>Limits of testability</name>
 	<description>A set of code samples showing limits of unit testing</description>
 	<properties>
-		<junit.jupiter.version>5.1.1</junit.jupiter.version>
-		<junit.platform.version> 1.1.1</junit.platform.version>
-		<assertj.version>3.9.1</assertj.version>
-		<maven.compiler.version>3.7.0</maven.compiler.version>
-		<commons.lang.version>3.7</commons.lang.version>
+		<junit.platform.version>1.1.1</junit.platform.version>
 		<poi.version>3.16</poi.version>
 		<guava.version>21.0</guava.version>
-		<guava.testlib.version>20.0</guava.testlib.version>
-		<mockito.version>2.18.0</mockito.version>
+		<guava-testlib.version>20.0</guava-testlib.version>
+		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
 	</properties>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.1.RELEASE</version>
+	</parent>
 
 	<dependencies>
 		<!-- JUnit Jupiter dependencies -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
-			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-params</artifactId>
-			<version>${junit.jupiter.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- JUnit platform launcher -->
@@ -48,13 +47,11 @@
 		<dependency>
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
-			<version>${assertj.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>${commons.lang.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -74,31 +71,24 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava-testlib</artifactId>
-			<version>${guava.testlib.version}</version>
+			<version>${guava-testlib.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
-			<version>${mockito.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.compiler.version}</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
 			<!-- Required to execute JUnit 5 tests by Maven -->
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
 				<dependencies>
 					<dependency>
 						<groupId>org.junit.platform</groupId>
