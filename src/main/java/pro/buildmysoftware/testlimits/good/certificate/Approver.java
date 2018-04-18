@@ -9,14 +9,20 @@ package pro.buildmysoftware.testlimits.good.certificate;
  */
 class Approver
 {
+	private final CertificateOwnerRepository repository;
+
+	public Approver(CertificateOwnerRepository repository)
+	{
+		this.repository = repository;
+	}
+
 	/**
 	 * @param owner
 	 * @return
 	 */
 	private CertificateOwner findInDb(String owner)
 	{
-		// TODO: add real db query
-		return new CertificateOwner();
+		return repository.findByName(owner);
 	}
 
 	/**
