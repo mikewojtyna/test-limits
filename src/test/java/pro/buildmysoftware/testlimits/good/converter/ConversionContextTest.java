@@ -16,7 +16,7 @@ import pro.buildmysoftware.testlimits.good.converter.converters.ObjectToStringCo
  * @author goobar
  *
  */
-class ConverterTest
+class ConversionContextTest
 {
 
 	private ConversionContext conversionContext;
@@ -50,6 +50,23 @@ class ConverterTest
 		assertThat(bikeFromCar).isPresent();
 		assertThat(bikeString).hasValue("Bike");
 		assertThat(carString).hasValue("Car");
+	}
+
+	@DisplayName("should return empty optional when no right converter is registered")
+	@Test
+	void empty() throws Exception
+	{
+		// given
+		Bike bike = new Bike();
+		conversionContext.registerConverter(new BikeToCarConverter(),
+			Car.class);
+
+		// when
+		Optional<Motorcycle> motorcycleFromBike = conversionContext
+			.convert(bike, Motorcycle.class);
+
+		// then
+		assertThat(motorcycleFromBike).isEmpty();
 	}
 
 	/**
