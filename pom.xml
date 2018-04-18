@@ -7,15 +7,16 @@
 	<name>Limits of testability</name>
 	<description>A set of code samples showing limits of unit testing</description>
 	<properties>
-		<junit.jupiter.version>5.1.1</junit.jupiter.version>
-		<junit.platform.version> 1.1.1</junit.platform.version>
+		<junit-jupiter.version>5.1.1</junit-jupiter.version>
+		<junit-platform.version> 1.1.1</junit-platform.version>
 		<assertj.version>3.9.1</assertj.version>
-		<maven.compiler.version>3.7.0</maven.compiler.version>
-		<commons.lang.version>3.7</commons.lang.version>
+		<maven-compiler.version>3.7.0</maven-compiler.version>
+		<commons-lang3.version>3.7</commons-lang3.version>
 		<poi.version>3.16</poi.version>
 		<guava.version>21.0</guava.version>
-		<guava.testlib.version>20.0</guava.testlib.version>
+		<guava-testlib.version>20.0</guava-testlib.version>
 		<mockito.version>2.18.0</mockito.version>
+		<java.version>1.8</java.version>
 	</properties>
 
 	<dependencies>
@@ -23,18 +24,18 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
-			<version>${junit.jupiter.version}</version>
+			<version>${junit-jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-params</artifactId>
-			<version>${junit.jupiter.version}</version>
+			<version>${junit-jupiter.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit.jupiter.version}</version>
+			<version>${junit-jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- JUnit platform launcher -->
@@ -42,7 +43,7 @@
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-launcher</artifactId>
-			<version>${junit.platform.version}</version>
+			<version>${junit-platform.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -54,7 +55,7 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>${commons.lang.version}</version>
+			<version>${commons-lang3.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -74,7 +75,7 @@
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava-testlib</artifactId>
-			<version>${guava.testlib.version}</version>
+			<version>${guava-testlib.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -89,10 +90,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.compiler.version}</version>
+				<version>${maven-compiler.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 			<!-- Required to execute JUnit 5 tests by Maven -->
@@ -103,7 +104,7 @@
 					<dependency>
 						<groupId>org.junit.platform</groupId>
 						<artifactId>junit-platform-surefire-provider</artifactId>
-						<version>${junit.platform.version}</version>
+						<version>${junit-platform.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
