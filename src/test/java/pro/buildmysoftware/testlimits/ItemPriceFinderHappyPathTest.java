@@ -1,7 +1,7 @@
 /**
  *
  */
-package pro.buildmysoftware.testlimits.bad;
+package pro.buildmysoftware.testlimits;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import java.math.BigDecimal;
