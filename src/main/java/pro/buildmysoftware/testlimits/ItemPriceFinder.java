@@ -1,7 +1,7 @@
 /**
  *
  */
-package pro.buildmysoftware.testlimits.bad;
+package pro.buildmysoftware.testlimits;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

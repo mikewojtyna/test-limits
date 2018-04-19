@@ -1,7 +1,7 @@
 /**
  *
  */
-package pro.buildmysoftware.testlimits.good.certificate;
+package pro.buildmysoftware.testlimits.certificate;
 
 import java.util.UUID;
 
