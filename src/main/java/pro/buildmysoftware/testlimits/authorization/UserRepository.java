@@ -19,9 +19,15 @@ public interface UserRepository
 
 	class User
 	{
-		private Set<String> permissions;
+		private final Set<String> permissions;
 
-		private String username;
+		private final String username;
+
+		public User(String username, Set<String> permissions)
+		{
+			this.username = username;
+			this.permissions = permissions;
+		}
 
 		/**
 		 * @return the username
