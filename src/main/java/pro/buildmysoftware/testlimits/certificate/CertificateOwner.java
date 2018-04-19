@@ -1,12 +1,12 @@
 /**
  *
  */
-package pro.buildmysoftware.testlimits.good.certificate;
+package pro.buildmysoftware.testlimits.certificate;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-import pro.buildmysoftware.testlimits.good.certificate.Certificate.CertificateStatus;
+import pro.buildmysoftware.testlimits.certificate.Certificate.CertificateStatus;
 
 /**
  * @author goobar

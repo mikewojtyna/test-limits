@@ -1,7 +1,7 @@
 /**
  *
  */
-package pro.buildmysoftware.testlimits.good.certificate;
+package pro.buildmysoftware.testlimits.certificate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;

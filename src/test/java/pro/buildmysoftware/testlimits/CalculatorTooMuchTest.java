@@ -1,12 +1,11 @@
 /**
  *
  */
-package pro.buildmysoftware.testlimits.bad;
+package pro.buildmysoftware.testlimits;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pro.buildmysoftware.testlimits.bad.Calculator;
 
 /**
  * @author goobar
