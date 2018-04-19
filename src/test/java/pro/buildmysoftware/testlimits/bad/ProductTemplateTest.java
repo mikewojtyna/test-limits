@@ -18,7 +18,7 @@ import pro.buildmysoftware.testlimits.bad.Product.Discount;
  *
  */
 @SuppressWarnings("unused")
-class ProductTestTemplate
+class ProductTemplateTest
 {
 
 	/**
