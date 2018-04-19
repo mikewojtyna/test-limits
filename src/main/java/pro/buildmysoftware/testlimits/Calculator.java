@@ -1,7 +1,7 @@
 /**
  *
  */
-package pro.buildmysoftware.testlimits.bad;
+package pro.buildmysoftware.testlimits;
 
 /**
  * @author goobar
